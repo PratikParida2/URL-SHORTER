@@ -5,7 +5,7 @@ const generateUrl=async(req,res)=>
     const short=shortid.generate();
     const originalUrl=req.body.url;
     if(!originalUrl)
-        res.json({message:"Required Original Url"})
+        res.status(401).json({message:"Required Original Url"})
     const newUrl=await urlModel.create({
         shortId:short,
         orginalUrl:originalUrl
@@ -16,6 +16,16 @@ const getUrl=async(req,res)=>
 {
     const shortId=req.params.shortId;
     const originalUrl=await urlModel.find({shortId:shortId});
-    res.redirect(originalUrl[0].orginalUrl);
+    if(originalUrl.length===0)
+    {
+        console.log(originalUrl);
+        res.json({message:"Please Recheck Url"});
+    }
+    else
+    {
+        
+        
+        res.redirect(originalUrl[0].orginalUrl);
+    }
 }
-export  {generateUrl,getUrl};
+export  {generateUrl,getUrl};  

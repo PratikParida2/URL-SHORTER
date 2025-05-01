@@ -9,9 +9,12 @@ import Authentication from './middleware/Authentication.js';
 dotenv.config()
 const Port=process.env.Port;
 const app=express();
-app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors({
+    origin:'http://localhost:3500',
+    credentials:true
+}));
 app.use('/users',userRoute);
 app.use('/url',Authentication,urlRoute);
 connectDB(); 

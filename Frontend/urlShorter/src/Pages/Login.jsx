@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
+axios.defaults.withCredentials = true; // <- CRUCIAL for cookies
 const Login = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -15,16 +16,22 @@ const Login = () => {
       const response = await axios.post("http://localhost:5500/users/login", {
         email: emailRef.current.value,
         password: passwordRef.current.value,
-      });
+      },{withCredentials: true,});
+      console.log(response);
+      
       formRef.current.reset();
       if(response.status===200)
       {
         toast.success("Login Succesfully");
-        navigate('/');
+        navigate('/home');
+      }
+      else
+      {
+        toast.error("Unauthorized");
       }
       // Optionally redirect user or store token here
     } catch (error) {
-      toast.error(error);
+      toast.error(error.response?.data || error.message);
       console.error("Login failed:", error.response?.data || error.message);
       // Optionally show error to user
     }

@@ -25,7 +25,7 @@ const Register = () => {
         if(response.status===201)
         {
           toastify.success("Register Succesfully")
-          navigate('/login');
+          navigate('/');
         }
         // Optionally redirect user or store token here
       } catch (error) {
@@ -103,7 +103,7 @@ const Register = () => {
 
         <p className="mt-6 text-center text-sm text-gray-500">
           Already have an account?
-          <Link to={'/login'} className="text-blue-600 hover:underline ml-1">
+          <Link to={'/'} className="text-blue-600 hover:underline ml-1">
             Login
           </Link>
         </p>
