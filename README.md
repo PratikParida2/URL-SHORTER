@@ -14,6 +14,6 @@ A simple URL shortener web application built with **Node.js**, **Express**, **Mo
 - Redirect to original URLs via shortened links
 - Store URLs in a MongoDB database
 
-## 📁 Folder Structure
+
 
 ![image](https://github.com/user-attachments/assets/0465e770-b1f4-442b-8ef0-aa16103872cf)
