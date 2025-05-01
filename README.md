@@ -16,5 +16,7 @@ A URL Shortener web application built with **Node.js**, **Express**, **MongoDB**
 - **Cookies**: JWT stored in cookies for session management
 - **Redirect**: Shortened URLs redirect to the original link
 
+![image](https://github.com/user-attachments/assets/f8b770b6-ddf8-4cd9-ac8f-f980bb4ddd5d)
+![image](https://github.com/user-attachments/assets/6d79fd0f-321a-4278-a1eb-ff92034f82da)
 
 ![image](https://github.com/user-attachments/assets/0465e770-b1f4-442b-8ef0-aa16103872cf)
